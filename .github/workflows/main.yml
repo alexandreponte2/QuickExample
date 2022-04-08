@@ -27,9 +27,3 @@ jobs:
 
       - name: gradle build
         run: ./gradlew build
-
-      # - name: gradle tasks
-      #   run: gradle tasks
-
-      # - name: gradle run
-      #   run: gradle run
