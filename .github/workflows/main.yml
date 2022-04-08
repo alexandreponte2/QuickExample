@@ -1,1 +1,35 @@
+name: Android CI
 
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    branches: [main]
+    paths-ignore:
+    - '**.md'
+
+jobs:
+  gradle_test:
+    runs-on: ubuntu-latest
+    # container:
+    #   image: docker://gradle:latest
+    steps:
+      - name: Checkout
+      - uses: actions/checkout@v3.0.0
+
+      - name: Setup JDK
+        uses: actions/setup-java@3.1.0
+        with:
+          java-version: 1.8
+
+
+      - name: gradle build
+        run: ./gradlew build
+
+      # - name: gradle tasks
+      #   run: gradle tasks
+
+      # - name: gradle run
+      #   run: gradle run
