@@ -11,7 +11,7 @@ on:
     - '**.md'
 
 jobs:
-  gradle_test:
+  build:
     runs-on: ubuntu-latest
     # container:
     #   image: docker://gradle:latest
@@ -20,9 +20,11 @@ jobs:
         uses: actions/checkout@v3.0.0
 
       - name: Setup JDK
-        uses: actions/setup-java@v3.1.0
+        uses: actions/setup-java@v3
         with:
-          java-version: 1.8
+            distribution: 'zulu' # See Zulu OpenJDK
+            java-version: '15'
+      - run: java --version
 
 
       - name: gradle build
