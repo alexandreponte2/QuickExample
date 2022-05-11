@@ -10,7 +10,7 @@ on:
     branches:
       - releases/**
 jobs:
-  build-android:
+  echo:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     
