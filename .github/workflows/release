@@ -1,0 +1,14 @@
+name: Promote to internal testing
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - releases/**
+jobs:
+  build-android:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    
+    
+    - name: Verify folder
+      run: ls -lha
